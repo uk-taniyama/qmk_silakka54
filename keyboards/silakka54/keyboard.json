@@ -10,7 +10,27 @@
     "console": false,
     "extrakey": true,
     "mousekey": true,
-    "nkro": true
+    "nkro": true,
+    "rgblight": true
+  },
+  "rgblight": {
+    "led_count": 2,
+    "split_count": [1, 1],    
+    "animations": {
+      "breathing": true,
+      "rainbow_mood": false,
+      "rainbow_swirl": false,
+      "snake": false,
+      "knight": false,
+      "christmas": false,
+      "static_gradient": false,
+      "rgb_test": false,
+      "alternating": false,
+      "twinkle": false
+    }
+  },
+  "ws2812": {
+    "pin": "GP16"
   },
   "split": {
     "enabled": true,
