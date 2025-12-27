@@ -10,6 +10,14 @@ build-default:
 build-mine:
 	km=mine sh ./scripts/build.sh
 
+.PHONY: build-vial
+build-vial:
+	km=vial sh ./scripts/build.sh
+
+.PHONY: build-via
+build-via:
+	km=via sh ./scripts/build.sh
+
 .PHONY: clean
 clean:
 	sh ./scripts/clean.sh
