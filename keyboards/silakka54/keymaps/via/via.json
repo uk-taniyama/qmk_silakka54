@@ -48,6 +48,9 @@
     }
   ],
   "matrix": {"rows": 10, "cols": 6},
+  "customKeycodes": [
+    {"name": "DF Toggle", "title": "Default Layer Toggle","shortName": "DF Toggle"}
+  ],
   "layouts": {
     "keymap": [
       [ {"y": 0.5},
