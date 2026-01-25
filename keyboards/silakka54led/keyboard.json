@@ -29,6 +29,9 @@
       "twinkle": false
     }
   },
+  "keycodes": [
+    {"key": "DF_TOGG"}
+  ],
   "ws2812": {
     "pin": "GP16"
   },
