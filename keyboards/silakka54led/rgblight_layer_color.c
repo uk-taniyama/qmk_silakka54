@@ -1,3 +1,5 @@
+#include QMK_KEYBOARD_H
+
 const hsv_t rgblight_layer_colors[] = {
     {HSV_BLUE},    //
     {HSV_RED},     //

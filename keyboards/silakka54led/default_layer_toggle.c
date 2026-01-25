@@ -1,3 +1,5 @@
+#include QMK_KEYBOARD_H
+
 bool is_default_layer_base(void) {
     return IS_LAYER_ON(0);
 }

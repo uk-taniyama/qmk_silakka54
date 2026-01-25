@@ -1,3 +1,4 @@
+#include QMK_KEYBOARD_H
 #include "keymap_japanese.h"
 
 static inline void send_translate_code(int code) {
