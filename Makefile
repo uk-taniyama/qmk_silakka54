@@ -28,3 +28,7 @@ rebuild: clean build
 .PHONY: format
 format:
 	find keyboards -name "*.[ch]" | xargs clang-format -i
+
+.PHONE: gen-props
+gen-props:
+	npx qmk-via-utils gen-vscode-props qmk_firmware/.build/obj_silakka54led_mine/cflags.txt
