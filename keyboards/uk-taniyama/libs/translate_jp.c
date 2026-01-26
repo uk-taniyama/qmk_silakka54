@@ -1,7 +1,7 @@
-#include QMK_KEYBOARD_H
+#include "libs.h"
 #include "keymap_japanese.h"
 
-static inline void send_translate_code(int code) {
+void send_translate_code(int code) {
     uint8_t saved_mods = get_mods();
     if (code & QK_LSFT) {
         add_mods(MOD_MASK_SHIFT);
@@ -13,7 +13,7 @@ static inline void send_translate_code(int code) {
     set_mods(saved_mods);
 }
 
-static inline void send_translate_jp_code(int normal_code, int shifted_code) {
+void send_translate_jp_code(int normal_code, int shifted_code) {
     uint8_t saved_mods = get_mods();
     bool    has_shift  = saved_mods & MOD_MASK_SHIFT;
 
@@ -24,7 +24,7 @@ static inline void send_translate_jp_code(int normal_code, int shifted_code) {
     }
 }
 
-static inline void send_translate_jp_grv(int normal_code, int shifted_code) {
+void send_translate_jp_grv(int normal_code, int shifted_code) {
     uint8_t saved_mods = get_mods();
     bool    has_alt    = saved_mods & MOD_MASK_ALT;
     if (has_alt) {
@@ -35,7 +35,7 @@ static inline void send_translate_jp_grv(int normal_code, int shifted_code) {
     }
 }
 
-static inline void send_alt_grv(uint16_t keycode, keyrecord_t* record) {
+void send_alt_grv(uint16_t keycode, keyrecord_t* record) {
     uint8_t saved_mods = get_mods();
     add_mods(MOD_MASK_ALT);
     register_code(KC_GRV);
@@ -43,7 +43,7 @@ static inline void send_alt_grv(uint16_t keycode, keyrecord_t* record) {
     set_mods(saved_mods);
 }
 
-static inline bool process_translate_jp(uint16_t keycode, keyrecord_t* record) {
+bool process_translate_jp(uint16_t keycode, keyrecord_t* record) {
 #define TRANS_GRV(code, jpCode, jpSCode)            \
     case code:                                      \
         if (!record->event.pressed) {               \

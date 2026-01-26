@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "libs.h"
 
 #define IME_TOGG ALT(KC_GRV)
 
@@ -76,16 +77,13 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                        'L', 'L', 'L',  'R', 'R', 'R'
     );
 // clang-format on
-#include "../../rgblight_layer_color.c"
-#include "../../translate_jp.c"
-#include "../../default_layer_toggle.c"
 
 void keyboard_post_init_user(void) {
 #ifdef CONSOLE_ENABLE
     debug_enable = true;
     eeconfig_init();
 #endif
-#ifdef RGBLIGHT_ENABLE
+#ifdef LIB_RGBLIGHT_LAYER_COLOR_ENABLE
     rgblight_apply_layer_color(layer_state | default_layer_state);
 #endif
 }

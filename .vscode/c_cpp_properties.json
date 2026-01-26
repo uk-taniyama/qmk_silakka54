@@ -10,6 +10,7 @@
             "includePath": [
                 "${workspaceFolder}/",
                 "${workspaceFolder}/qmk_firmware",
+                "${workspaceFolder}/keyboards/uk-taniyama/libs",
                 "${workspaceFolder}/keyboards/silakka54led/keymaps/mine",
                 "${workspaceFolder}/keyboards",
                 "${workspaceFolder}/keyboards/silakka54led",
@@ -126,6 +127,9 @@
                 "KEYBOARD_silakka54led",
                 "KEYMAP_C=\"keyboards/silakka54led/keymaps/mine/keymap.c\"",
                 "LAYER_LOCK_ENABLE",
+                "LIB_DEFAULT_LAYER_TOGGLE_ENABLE",
+                "LIB_RGBLIGHT_LAYER_COLOR_ENABLE",
+                "LIB_TRANSLATE_JP_ENABLE",
                 "MAGIC_ENABLE",
                 "MCU_RP",
                 "MOUSEKEY_ENABLE",

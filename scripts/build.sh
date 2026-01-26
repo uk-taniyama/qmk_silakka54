@@ -20,7 +20,8 @@ git submodule sync -- "$fw"
 git submodule update --init --recursive "$fw"
 
 echo "==> copy keyboards"
-rsync -a --delete keyboards/silakka54led/* $fw/keyboards/silakka54led
+rsync -a --delete keyboards/silakka54led/* ${fw}/keyboards/silakka54led
+rsync -a --delete keyboards/uk-taniyama/* ${fw}/keyboards/uk-taniyama
 
 cd ${fw}
 # patch docker_cmd.sh's docker image
