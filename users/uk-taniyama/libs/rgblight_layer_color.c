@@ -1,3 +1,4 @@
+#include QMK_KEYBOARD_H
 #include "libs.h"
 
 #ifndef RGBLIGHT_LAYER_COLORS

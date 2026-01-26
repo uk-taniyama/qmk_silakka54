@@ -1,3 +1,4 @@
+#include QMK_KEYBOARD_H
 #include "libs.h"
 #include "keymap_japanese.h"
 
