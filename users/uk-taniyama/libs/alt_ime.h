@@ -22,5 +22,14 @@ static inline bool process_record_alt_ime(uint16_t keycode, keyrecord_t *record)
         }
         // JP layout: use the default Mod-Tap behavior (JP_ZKHK)
     }
+#ifndef US_ZKHK_OFF
+    if (keycode == US_ZKHK && record->event.pressed) {
+        if (IS_JP_LAYOUT()) {
+            tap_code16(JP_ZKHK);
+            return false;
+        }
+        // US layout: use the default Mod-Tap behavior (ALT_IME)
+    }
+#endif
     return true;
 }
