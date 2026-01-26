@@ -4,7 +4,8 @@
 #include QMK_KEYBOARD_H
 #include USER_NAME_H
 
-#define IME_TOGG ALT(KC_GRV)
+#define IS_JP_LAYOUT() (is_default_layer_alt())
+#include "libs/alt_ime.h"
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -14,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                              KC_H,    KC_J,    KC_K,    KC_L,    _______, KC_ENT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                              KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                                            KC_LGUI, MO(2),   KC_SPC,          KC_SPC,  MO(3), KC_RALT
+                                            KC_LGUI, MO(2),   KC_SPC,          KC_SPC,  MO(3),   ALT_IME
     ),
     // default layer 1 : alt(jp)
     [1] = LAYOUT(
@@ -88,8 +89,11 @@ void keyboard_post_init_user(void) {
 #endif
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (is_default_layer_alt()) {
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_record_alt_ime(keycode, record)) {
+        return false;
+    }
+    if (IS_JP_LAYOUT()) {
         if (!process_translate_jp(keycode, record)) {
             return false;
         }
