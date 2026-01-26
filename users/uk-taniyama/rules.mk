@@ -12,3 +12,7 @@ ifeq ($(LIB_RGBLIGHT_LAYER_COLOR_ENABLE),yes)
     SRC += libs/rgblight_layer_color.c
     OPT_DEFS += -DLIB_RGBLIGHT_LAYER_COLOR_ENABLE
 endif
+ifeq ($(LIB_TAP_HOLD_ENABLE),yes)
+    SRC += libs/tap_hold.c
+    OPT_DEFS += -DLIB_TAP_HOLD_ENABLE
+endif

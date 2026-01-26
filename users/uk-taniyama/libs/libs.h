@@ -9,3 +9,7 @@
 #ifdef LIB_RGBLIGHT_LAYER_COLOR_ENABLE
 #    include "rgblight_layer_color.h"
 #endif
+
+#ifdef LIB_TAP_HOLD_ENABLE
+#    include "tap_hold.h"
+#endif

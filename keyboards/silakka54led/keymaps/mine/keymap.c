@@ -7,11 +7,14 @@
 #define IS_JP_LAYOUT() (is_default_layer_alt())
 #include "libs/alt_ime.h"
 
+TAP_HOLD(GRV_ESC, KC_GRV, KC_ESC);
+TAP_HOLD_KEYS(&tap_hold_GRV_ESC);
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // default layer 0 : base
     [0] = LAYOUT(
-        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                              KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+        GRV_ESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                              KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                              KC_H,    KC_J,    KC_K,    KC_L,    _______, KC_ENT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                              KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
@@ -90,7 +93,7 @@ void keyboard_post_init_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_record_alt_ime(keycode, record)) {
+    if (!process_record_alt_ime(keycode, record) || !process_record_tap_hold(keycode, record)) {
         return false;
     }
     if (IS_JP_LAYOUT()) {

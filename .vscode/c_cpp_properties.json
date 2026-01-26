@@ -129,6 +129,7 @@
                 "LAYER_LOCK_ENABLE",
                 "LIB_DEFAULT_LAYER_TOGGLE_ENABLE",
                 "LIB_RGBLIGHT_LAYER_COLOR_ENABLE",
+                "LIB_TAP_HOLD_ENABLE",
                 "LIB_TRANSLATE_JP_ENABLE",
                 "MAGIC_ENABLE",
                 "MCU_RP",
