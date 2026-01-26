@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
-#include "libs.h"
+#include USER_NAME_H
 
 #define IME_TOGG ALT(KC_GRV)
 

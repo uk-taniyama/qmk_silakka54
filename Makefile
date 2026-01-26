@@ -27,7 +27,7 @@ rebuild: clean build
 
 .PHONY: format
 format:
-	find keyboards -name "*.[ch]" | xargs clang-format -i
+	find keyboards users -name "*.[ch]" | xargs clang-format -i
 
 .PHONE: gen-props
 gen-props:
