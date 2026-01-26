@@ -10,6 +10,12 @@
 TAP_HOLD(GRV_ESC, KC_GRV, KC_ESC);
 TAP_HOLD_KEYS(&tap_hold_GRV_ESC);
 
+const layer_state_t jp_layer = (1U << 1);
+
+#define KEY_OVERRIDE_JP(mods, key, jp_key) ko_make_with_layers(mods, key, jp_key, jp_layer)
+
+#include "libs/key_overrides_jp.c"
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // default layer 0 : base
@@ -95,11 +101,6 @@ void keyboard_post_init_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_alt_ime(keycode, record) || !process_record_tap_hold(keycode, record)) {
         return false;
-    }
-    if (IS_JP_LAYOUT()) {
-        if (!process_translate_jp(keycode, record)) {
-            return false;
-        }
     }
     if (!process_default_layer_toggle(keycode, record)) {
         return false;
