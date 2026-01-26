@@ -3,15 +3,18 @@
 #ifndef RGBLIGHT_LAYER_COLORS
 // clang-format off
 #   define RGBLIGHT_LAYER_COLORS \
-    {HSV_BLUE},    \
-    {HSV_RED},     \
-    {HSV_GREEN},   \
-    {HSV_CYAN},    \
-    {HSV_PURPLE},  \
-    {HSV_ORANGE},  \
-    {HSV_YELLOW},  \
-    {HSV_MAGENTA}
+    {HSV_BLUE},         \
+    {HSV_RED},          \
+    {HSV_GREEN},        \
+    {HSV_ORANGE},       \
+    {HSV_CYAN},         \
+    {HSV_MAGENTA},      \
+    {HSV_SPRINGGREEN},  \
+    {HSV_PURPLE}
 // clang-format on
+// {HSV_YELLOW}
+// {HSV_CHARTREUSE}
+// {HSV_GOLD}
 #endif
 
 const hsv_t rgblight_layer_colors[] = {RGBLIGHT_LAYER_COLORS};
@@ -21,7 +24,7 @@ const uint8_t rgblight_layer_colors_count = sizeof(rgblight_layer_colors) / size
 void rgblight_apply_layer_color(layer_state_t next_state) {
     uint8_t      layer = get_highest_layer(next_state);
     const hsv_t* hsv   = rgblight_layer_colors + layer;
-    rgblight_sethsv_noeeprom(hsv->h, hsv->s, hsv->v);
+    rgblight_sethsv_noeeprom(hsv->h, hsv->s, RGBLIGHT_DEFAULT_VAL);
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
